@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+ int arr[6] = { 10,20,30,40,50,60};
+// cout<<sizeof(arr);//4 byte x 6 element =24
+ cout<< sizeof(arr)/ sizeof(arr[1]); 
+
+
+
+  
+}
