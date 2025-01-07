@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;  // Number of test cases
+    
+    while (t--) {
+        int n;
+        cin >> n;  // Size of the array
+        int a[n];
+        
+        // Read the array
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+
+        // Find the largest and second largest distinct numbers
+        int max1 = -1, max2 = -1;
+        
+        for (int i = 0; i < n; i++) {
+            // Check if current element is larger than max1
+            if (a[i] > max1) {
+                max2 = max1;  // Update second largest
+                max1 = a[i];  // Update largest
+            }
+            // If it is not larger than max1, check if it is distinct and larger than max2
+            else if (a[i] < max1 && a[i] > max2) {
+                max2 = a[i];  // Update second largest
+            }
+        }
+        
+        // Output the result (sum of max1 and max2)
+        cout << max1 + max2 << endl;
+    }
+    
+    return 0;
+}
