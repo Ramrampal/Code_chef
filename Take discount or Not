@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;  // Read the number of test cases
+
+    while (T--) {
+        int N, X, Y;
+        cin >> N >> X >> Y;  // Read N, X, Y for the test case
+
+        int original_cost = 0;
+        int discounted_cost = 0;
+
+        // Read the item prices and calculate the original total cost
+        for (int i = 0; i < N; i++) {
+            int price;
+            cin >> price;
+            original_cost += price;  // Adding to the original total cost
+
+            // Calculate the discounted cost with the second operation
+            discounted_cost += max(price - Y, 0);  // Subtracting Y but ensuring no negative values
+        }
+
+        // Calculate the total cost with the coupon
+        int total_with_coupon = X + discounted_cost;
+
+        // Output whether Chef should buy the coupon or not
+        if (total_with_coupon < original_cost) {
+            cout << "COUPON\n";
+        } else {
+            cout << "NO COUPON\n";
+        }
+    }
+
+    return 0;
+}
